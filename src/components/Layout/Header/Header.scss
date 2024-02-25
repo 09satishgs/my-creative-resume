@@ -1,0 +1,13 @@
+.header {
+  &_main-container {
+    height: 4800px;
+    background-color: gray;
+    padding: 8px;
+    .main-content {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

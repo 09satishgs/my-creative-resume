@@ -1,35 +1,23 @@
 import React from "react";
 import "./Layout.scss";
-import Menu from "../../common/Icons/svg/Menu";
+import { motion } from "framer-motion";
+import Header from "./Header/Header";
+import Body from "./Body/Body";
 const Layout = () => {
-  const [sidenavCollapsed, setSidenavCollapsed] = React.useState(true);
   return (
-    <div className="parent-container body">
-      <div className="layout-box">
-        <div
-          className={"side-nav" + (sidenavCollapsed ? " collapse" : " expand")}
-        >
-          <div className="side-nav_container"></div>
-        </div>
-        <div className="main-container">
-          <div className="header-space">
-            <div className="header-box">
-              <div
-                className="menu-state"
-                onClick={() => {
-                  setSidenavCollapsed((val) => {
-                    return !val;
-                  });
-                }}
-              >
-                <Menu />
-              </div>
-            </div>
-          </div>
-          <div className="router-space"></div>
-        </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <div className="layout_main-container">
+        <Header />
+        <motion.div style={{ height: 200, backgroundColor: "red" }}>
+          <Body />
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
+
 export default Layout;
